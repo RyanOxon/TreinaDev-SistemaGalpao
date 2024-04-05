@@ -7,7 +7,7 @@
 
 <ul><% @warehouse.each do |warehouse| %>
   <p>
-    <li><%= warehouse.name%></li>
+    <li><%= link_to( warehouse.name, warehouse_path(warehouse.id)) %></li>
     <li>Código: <%= warehouse.code%></li>
     <li>Cidade: <%= warehouse.city%></li>
     <li><%= warehouse.area%>m²</li>

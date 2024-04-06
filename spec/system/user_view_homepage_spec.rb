@@ -11,8 +11,12 @@ describe "Usuario visita tela inicial" do
 
   it "e vê os galpoes cadastrados" do
     #arrange
-    Warehouse.create(name: 'Rio' , code: 'SDU' , city: 'Rio de Janeiro' , area: 60000)
-    Warehouse.create(name: 'Maceio' , code: 'MCZ' , city: 'Maceio' , area: 50000)
+    Warehouse.create(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60000,
+                      address: 'Avenida do aeroporto, 1000', cep: '15000-000',
+                      description: 'Galpão destinado para cargas internacionais')
+    Warehouse.create(name: 'Maceio', code: 'MCZ', city: 'Maceio', area: 50000,
+                    address: 'Avenida do aeroporto, 1000', cep: '15000-000',
+                    description: 'Galpão destinado para cargas internacionais')
     #act
     visit(root_path)
     #assert

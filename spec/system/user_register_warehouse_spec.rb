@@ -24,6 +24,7 @@ describe "Usuario registra um galpão" do
     fill_in 'Descrição', with: 'Galpão da zona porturaria do Rio'
     fill_in 'Código', with: 'RIO'
     fill_in 'Endereço', with: 'Avenida do museu do Amanha, 1000'
+    fill_in 'Cidade', with: 'Rio de Janeiro'
     fill_in 'CEP', with: '20100-000'
     fill_in 'Area', with: '32000'
     click_on 'Enviar'
@@ -34,6 +35,16 @@ describe "Usuario registra um galpão" do
     expect(page).to have_content 'RIO'
     expect(page).to have_content '32000m²'   
     
+  end
+  
+  it "com dados incompletos" do
+    visit root_path
+    click_on 'Cadastrar Galpão'
+    fill_in 'Nome', with: ''
+    
+    click_on 'Enviar'
+
+    expect(page).to have_content 'Galpão não cadastrado' 
   end
   
 end

@@ -1,6 +1,8 @@
 <section id="warehouses">
 <h2> Galpões </h2>
 
+<%= link_to "Cadastrar Galpão", new_warehouse_path %>
+
 <% @warehouse.each do |warehouse| %>
   <div>
     <h3><%= link_to( warehouse.name, warehouse_path(warehouse.id)) %></h3>

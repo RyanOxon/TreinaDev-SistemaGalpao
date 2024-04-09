@@ -12,7 +12,7 @@ describe "Usuario registra um galpão" do
     expect(page).to have_field('Endereço')
     expect(page).to have_field('Cidade')
     expect(page).to have_field('CEP')
-    expect(page).to have_field('Area')
+    expect(page).to have_field('Área')
       
   end
   
@@ -26,8 +26,8 @@ describe "Usuario registra um galpão" do
     fill_in 'Endereço', with: 'Avenida do museu do Amanha, 1000'
     fill_in 'Cidade', with: 'Rio de Janeiro'
     fill_in 'CEP', with: '20100-000'
-    fill_in 'Area', with: '32000'
-    click_on 'Enviar'
+    fill_in 'Área', with: '32000'
+    click_on 'Criar Galpão'
 
     expect(current_path).to eq root_path
     expect(page).to have_content 'Galpão cadastrado com sucesso'
@@ -42,9 +42,16 @@ describe "Usuario registra um galpão" do
     click_on 'Cadastrar Galpão'
     fill_in 'Nome', with: ''
     
-    click_on 'Enviar'
+    click_on 'Criar Galpão'
 
     expect(page).to have_content 'Galpão não cadastrado' 
+    expect(page).to have_content 'Nome não pode ficar em branco' 
+    expect(page).to have_content 'Cidade não pode ficar em branco'
+    expect(page).to have_content 'Código não pode ficar em branco'
+    expect(page).to have_content 'Endereço não pode ficar em branco'
+    expect(page).to have_content 'CEP não pode ficar em branco'
+    expect(page).to have_content 'Descrição não pode ficar em branco'
+    expect(page).to have_content 'Área não pode ficar em branco'
   end
   
 end

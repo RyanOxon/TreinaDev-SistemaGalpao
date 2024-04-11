@@ -65,6 +65,7 @@ RSpec.describe Warehouse, type: :model do
 
       expect(result).to eq false 
     end
+
     it "false when Code is smaller than 3" do
       warehouse = Warehouse.new(name: 'Rio de Janeiro', code: 'R', address: 'Endereço',
                                 cep: '24000-000', city: 'Rio de Janeiro', area: 10000,
@@ -98,6 +99,5 @@ RSpec.describe Warehouse, type: :model do
       expect(result).to eq false  
       
     end
-    
   end
 end

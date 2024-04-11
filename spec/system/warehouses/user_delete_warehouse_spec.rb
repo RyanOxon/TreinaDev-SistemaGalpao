@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 describe "Usuario remove um galpao" do
   it "com sucesso" do
     warehouse = Warehouse.create!(name: 'Rio', code: 'SDU', city: 'Rio de Janeiro', area: 60000,

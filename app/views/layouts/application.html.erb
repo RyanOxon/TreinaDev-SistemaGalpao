@@ -10,13 +10,29 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'Fornecedores', suppliers_path%>
-    </nav>
+    
   
-  <header><h1> Galpões & Estoque </h1><header>
-    <%= notice %>
-    <%= alert %>
+    <header>
+      <nav id="navbar"><div>
+        <h1 class="head-title">Galpões & Estoque</h1>
+        <span>
+          <%= link_to 'Home', root_path, class:"nav-button"%>
+          <%= link_to 'Fornecedores', suppliers_path, class:"nav-button"%>
+        </span>
+    </div></nav>
+    <header>
+    <% if notice %>  
+      <div class="notice">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%= notice %>
+      </div>
+    <% end %>
+    <%if alert%>
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <%= alert %>
+      </div>
+    <% end %>
     <%= yield %>
   </body>
 </html>

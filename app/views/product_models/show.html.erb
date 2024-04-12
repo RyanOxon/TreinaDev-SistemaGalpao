@@ -1,0 +1,10 @@
+<h1>Detalhes <%= @product_model.name %> </h1>
+<div><p> <%= link_to 'Editar', edit_product_model_path(@product_model.id) %> </p></div>
+<div>
+  <ul>
+    <li>SKU: <%= @product_model.sku%> </li>
+    <li>Fornecedor: <%= @product_model.supplier.brand_name%> </li>
+    <li>Peso: <%= @product_model.weight %> </li>
+    <li>Dimensão: <%= @product_model.height%>x<%= @product_model.width%>x<%= @product_model.depth %> </li>
+  </ul>
+</div>

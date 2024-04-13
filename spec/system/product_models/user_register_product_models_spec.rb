@@ -5,6 +5,8 @@ describe "Usuario Cadastra novo modelo de produto" do
     Supplier.create!(corporate_name: 'ACME Corp', brand_name: 'ACME', registration_number: '1019181716715',
                                 full_address: 'Avenida explosiva, 1000', city: 'Rio de Janeiro', state: 'Rio de janeiro',
                                 email: 'ACME@ACME.br')
+    user =User.create!(email:"teste@teste.com", password: "password")
+    login_as user
     
     visit root_path
     click_on 'Modelos de produtos'
@@ -20,7 +22,9 @@ describe "Usuario Cadastra novo modelo de produto" do
     Supplier.create!(corporate_name: 'ACME Corp', brand_name: 'ACME', registration_number: '1019181716715',
                                 full_address: 'Avenida explosiva, 1000', city: 'Rio de Janeiro', state: 'Rio de janeiro',
                                 email: 'ACME@ACME.br')
-    
+    user =User.create!(email:"teste@teste.com", password: "password")
+    login_as user
+
     visit root_path
     click_on 'Modelos de produtos'
     click_on 'Cadastrar novo modelo'
@@ -41,6 +45,9 @@ describe "Usuario Cadastra novo modelo de produto" do
     end
     
     it "com dados incompletos" do
+      user = User.create!(email:"teste@teste.com", password: "password")
+      login_as user
+
       visit root_path
       click_on 'Modelos de produtos'
       click_on 'Cadastrar novo modelo'

@@ -1,9 +1,18 @@
 require 'rails_helper'
 
 describe "Usuario ve modelos de produto" do
+  it "se estiver autenticado" do
+    visit product_models_path
+
+    expect(current_path).to eq new_user_session_path
+    
+  end
+  
   it "a partir do menu" do
-      
+    user = User.create!(email:"teste@teste.com", password: "password")
     visit root_path
+    login_as user
+
     within 'nav' do
       click_on 'Modelos de produtos'
     end
@@ -19,7 +28,11 @@ describe "Usuario ve modelos de produto" do
     ProductModel.create!(name:'Lança-Foguetes', weight:'10000', width: 200, height: 50, depth: 50, sku: 'Rocket404-ACME-171', supplier: supplier)
     ProductModel.create!(name:'TNT', weight:'500', width: 2, height: 10, depth: 5, sku: 'Explosive-ACME-404', supplier: supplier)
 
+    user = User.create!(email:"teste@teste.com", password: "password")
+
+    login_as(user)
     visit root_path
+    
     within 'nav' do
       click_on 'Modelos de produtos'
     end
@@ -34,6 +47,8 @@ describe "Usuario ve modelos de produto" do
   end
 
   it "e nao ve nenhum modelo de produto" do
+    user =User.create!(email:"teste@teste.com", password: "password")
+    login_as user
 
     visit root_path
     within 'nav' do

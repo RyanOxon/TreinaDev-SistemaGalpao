@@ -5,22 +5,30 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application" %>
   </head>
-
   <body>
-    
-  
     <header>
-      <nav id="navbar"><div>
-        <h1 class="head-title">Galpões & Estoque</h1>
-        <span>
-          <%= link_to 'Home', root_path, class:"nav-button"%>
-          <%= link_to 'Fornecedores', suppliers_path, class:"nav-button"%>
-          <%= link_to 'Modelos de produtos', product_models_path, class:"nav-button"%>
+      <nav id="navbar">
+        <div>
+          <h1 class="head-title">Galpões & Estoque</h1>
+          <span>
+            <div>
+              <%= link_to 'Home', root_path, class:"nav-link"%>
+              <%= link_to 'Fornecedores', suppliers_path, class:"nav-link"%>
+              <%= link_to 'Modelos de produtos', product_models_path, class:"nav-link"%>
+            </div>
+            <div>
+              <% if user_signed_in?%>
+                <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"nav-button" %>
+                Usuário: <%= current_user.email %>
+              <% else %>
+                <%= link_to 'Entrar', new_user_session_path, class:"nav-button"%>  
+              <% end %>
+            </div>
         </span>
-    </div></nav>
+      </div>
+    </nav>
     <header>
     <% if notice %>  
       <div class="notice">
@@ -28,7 +36,7 @@
         <%= notice %>
       </div>
     <% end %>
-    <%if alert%>
+    <%if alert %>
       <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         <%= alert %>

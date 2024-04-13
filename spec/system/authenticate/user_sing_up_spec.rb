@@ -7,7 +7,7 @@ describe "Usuario se cadastra" do
     within 'nav' do
       click_on 'Entrar'
     end
-    click_on 'Sign up'
+    click_on 'Registrar-se'
     fill_in "Nome",	with: "Rafael"
     fill_in "E-mail", with: "rafael@email.com"
     fill_in "Senha", with: "password"

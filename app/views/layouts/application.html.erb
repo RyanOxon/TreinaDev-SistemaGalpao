@@ -14,16 +14,17 @@
           <h1 class="head-title">Galpões & Estoque</h1>
           <span>
             <div>
-              <%= link_to 'Home', root_path, class:"nav-link"%>
-              <%= link_to 'Fornecedores', suppliers_path, class:"nav-link"%>
-              <%= link_to 'Modelos de produtos', product_models_path, class:"nav-link"%>
+              <%= link_to 'Home', root_path, class:"nav-button"%>
+              <%= link_to 'Fornecedores', suppliers_path, class:"nav-button"%>
+              <%= link_to 'Modelos de produtos', product_models_path, class:"nav-button"%>
+              <%= link_to 'Registrar pedido', new_order_path, class:"nav-button"%>
             </div>
             <div>
               <% if user_signed_in?%>
+                <strong>Usuário:</strong> <%= current_user.email %>
                 <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"nav-button" %>
-                Usuário: <%= current_user.email %>
               <% else %>
-                <%= link_to 'Entrar', new_user_session_path, class:"nav-button"%>  
+                <%= button_to 'Entrar', new_user_session_path, method: :get, class:"nav-button"%>  
               <% end %>
             </div>
         </span>

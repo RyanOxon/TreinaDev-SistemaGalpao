@@ -9,7 +9,9 @@ describe "Usuario se autentica" do
     end
     fill_in "E-mail",	with: "teste@teste.com"
     fill_in "Senha", with: "password"
-    click_on 'Log in'
+    within 'header/header' do
+      click_on 'Entrar'
+    end
     within 'nav' do
       expect(page).to have_content 'Sair' 
       expect(page).not_to have_content 'Entrar'
@@ -26,7 +28,9 @@ describe "Usuario se autentica" do
     end
     fill_in "E-mail",	with: "teste@teste.com"
     fill_in "Senha", with: "password"
-    click_on 'Log in'
+    within 'header/header' do
+      click_on 'Entrar'
+    end
     click_on 'Sair'
 
     expect(page).to have_content 'Logout efetuado com sucesso.' 

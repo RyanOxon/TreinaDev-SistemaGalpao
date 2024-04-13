@@ -1,6 +1,4 @@
-body{
-  margin: 0 ;
- }
+
 
 .alert {
   padding: 20px;
@@ -37,18 +35,26 @@ body{
   margin: 10px;
 }
 
-
-#navbar{
-  padding: 1px 0 5px 0;
-  border: 1px solid black;
-}
-
-#navbar a {
+.nav-button {
   text-decoration: none;
   color: black;
   background-color: lightgrey;
   border-radius: 2px;
   padding: 3px;
+  margin: 0 2px 0 3px;
+  border: 1px solid black;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.nav-button:hover{
+  background-color: gray;
+}
+
+
+#navbar{
+  margin: -8px -8px 0;
+  padding: 1px 0 5px 0;
   border: 1px solid black;
 }
 
@@ -56,6 +62,11 @@ body{
   display: flex;
   justify-content: space-between;
   margin:0 1rem 0;
+}
+
+#navbar span div{
+  display: flex;
+  align-items: center;
 }
 
 #warehouses h2 {

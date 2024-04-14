@@ -27,7 +27,8 @@ describe "Usuario cadastra um pedido" do
 
     ProductModel.create!(name:'Lança-Foguetes', weight:'10000', width: 200, height: 50, depth: 50, sku: 'Rocket404-ACME-171', supplier: supplier)
     ProductModel.create!(name:'TNT', weight:'500', width: 2, height: 10, depth: 5, sku: 'Explosive-ACME-404', supplier: supplier)
-
+                        
+    allow(SecureRandom).to receive(:alphanumeric).and_return('ABCD1234')
     login_as user
     visit root_path
     click_on 'Registrar pedido'
@@ -37,6 +38,7 @@ describe "Usuario cadastra um pedido" do
     click_on 'Criar Pedido'
 
     expect(page).to have_content 'Pedido registrado com sucesso'
+    expect(page).to have_content 'Pedido ABCD1234'
     expect(page).to have_content 'Galpão Destino: GRU - Aeroporto SP'
     expect(page).to have_content 'Fornecedor: ACME Corp'
     expect(page).to have_content 'Usuário Responsável: rafael <teste@teste.com>'

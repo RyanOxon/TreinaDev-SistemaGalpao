@@ -7,10 +7,10 @@ pt-BR:
       order: 'Pedido'
     attributes:
       order: 
-        warehouse_id: 'Galpão destino'
+        warehouse_id: 'Galpão Destino'
         supplier_id: 'Fornecedor'
-        user_id: 'Usuário responsavel'
-        estimated_delivery_date: 'Tempo estimado para entrega'
+        user_id: 'Usuário Responsável'
+        estimated_delivery_date: 'Previsao de entrega'
       warehouse:
         name: 'Nome'
         code: 'Código'

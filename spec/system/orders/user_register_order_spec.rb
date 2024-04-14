@@ -31,15 +31,15 @@ describe "Usuario cadastra um pedido" do
     login_as user
     visit root_path
     click_on 'Registrar pedido'
-    select warehouse.name, from: 'Galpão destino'
+    select warehouse.full_description, from: 'Galpão Destino'
     select supplier.corporate_name, from: 'Fornecedor'
-    fill_in "Tempo estimado para entrega",	with: "20/12/2024" 
+    fill_in "Previsao de entrega",	with: "20/12/2024" 
     click_on 'Criar Pedido'
 
     expect(page).to have_content 'Pedido registrado com sucesso'
-    expect(page).to have_content 'Galpão Destino: Aeroporto SP'
+    expect(page).to have_content 'Galpão Destino: GRU - Aeroporto SP'
     expect(page).to have_content 'Fornecedor: ACME Corp'
-    expect(page).to have_content 'Usuário Responsavel: rafael <teste@teste.com>'
+    expect(page).to have_content 'Usuário Responsável: rafael <teste@teste.com>'
     expect(page).to have_content 'Previsao de entrega: 20/12/2024'
 
   end

@@ -16,7 +16,7 @@ describe "Usuario se cadastra" do
 
     within 'nav' do
       expect(page).to have_content 'Sair' 
-      expect(page).to have_content 'Usuário: rafael@email.com'
+      expect(page).to have_content 'Usuário: Rafael | rafael@email.com'
       expect(page).not_to have_content 'Entrar'  
     end
     expect(page).to have_content 'Bem vindo! Você realizou seu registro com sucesso.' 

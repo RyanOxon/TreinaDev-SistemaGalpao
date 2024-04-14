@@ -1,8 +1,8 @@
 <h1>Pedido</h1>
 
 <ul>
-  <li>Galpão Destino: <%= @order.warehouse.name %> </li>
-  <li>Fornecedor: <%= @order.supplier.corporate_name %> </li>
-  <li>Usuário Responsavel: <%= "#{@order.user.name} <#{@order.user.email}>" %> </li>
-  <li>Previsao de entrega: <%= I18n.localize(@order.estimated_delivery_date) %> </li>
+  <li><%= Order.human_attribute_name(:warehouse_id)%>: <%= @order.warehouse.full_description %> </li>
+  <li><%= Order.human_attribute_name(:supplier_id)%>: <%= @order.supplier.corporate_name %> </li>
+  <li><%= Order.human_attribute_name(:user_id)%>: <%= "#{@order.user.name} <#{@order.user.email}>" %> </li>
+  <li><%= Order.human_attribute_name(:estimated_delivery_date)%>: <%= I18n.localize(@order.estimated_delivery_date) %> </li>
 </ul>

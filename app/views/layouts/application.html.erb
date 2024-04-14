@@ -21,7 +21,7 @@
             </div>
             <div>
               <% if user_signed_in?%>
-                <strong>Usuário:</strong> <%= current_user.email %>
+                <strong>Usuário:</strong> <%= current_user.description %>
                 <%= button_to 'Sair', destroy_user_session_path, method: :delete, class:"nav-button" %>
               <% else %>
                 <%= button_to 'Entrar', new_user_session_path, method: :get, class:"nav-button"%>  

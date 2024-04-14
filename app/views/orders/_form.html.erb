@@ -10,7 +10,7 @@
 <%= form_with(model: @order) do |form|%>
   <div>
     <%= form.label :warehouse_id %>
-    <%= form.collection_select :warehouse_id, @warehouses, :id, :name %>
+    <%= form.collection_select :warehouse_id, @warehouses, :id, :full_description %>
   </div>
   <div>
     <%= form.label :supplier_id %>
@@ -18,7 +18,7 @@
   </div>
   <div>
     <%= form.label :estimated_delivery_date%>
-    <%= form.text_field :estimated_delivery_date %>
+    <%= form.date_field :estimated_delivery_date %>
   </div>
   <div>
     <%= form.submit %>
